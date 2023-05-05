@@ -44,5 +44,4 @@ jobs:
           registry: Docker.io
           dockerfile: Dockerfile.ci
           username: ${{ secrets.DOCKER_USUARIO }}
-          password: ${{ secrets.DOCKER_SENHA }}
-          
+          password: ${{ secrets.DOCKER_SENHA }}         
