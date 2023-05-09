@@ -35,36 +35,19 @@ jobs:
       
     - name: Executando o projeto
       run: java -cp target/classes org.example.Main
-      
- #   - name: Create Tag
- #     id: create_tag
- #     run: |
- #         git tag v1.0.0
- #         git push origin v1.0.0
- #     env:
- #         TAG_NAME: v1.0.0
-
-
- #   - name: Get Version
-  #    run: |
-  #        version=$(git describe --tags --abbrev=0)
-  #        echo "Version: $version"
     
     - name: Git Version
-  # You may pin to the exact commit or the version.
-  # uses: codacy/git-version@fa06788276d7492a2af01662649696d249ecf4cb
       uses: codacy/git-version@2.4.0
       with:
           # The name of the release branch
           release-branch: master
-          # The name of the dev branch
-          dev-branch: dev
+
                   
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Build & push Docker image
       with:
           image: nisflei/aula_maven_e
-          tags: 1.0, 1.1, $version
+          tags: 1.0, 1.1, $VERSION
           registry: docker.io
           dockerfile: dockerfile
           username: ${{ secrets.DOCKER_USUARIO }}
