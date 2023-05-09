@@ -45,11 +45,21 @@ jobs:
  #         TAG_NAME: v1.0.0
 
 
-    - name: Get Version
-      run: |
-          version=$(git describe --tags --abbrev=0)
-          echo "Version: $version"
-     
+ #   - name: Get Version
+  #    run: |
+  #        version=$(git describe --tags --abbrev=0)
+  #        echo "Version: $version"
+   
+    - name: Git Version
+  # You may pin to the exact commit or the version.
+  # uses: codacy/git-version@fa06788276d7492a2af01662649696d249ecf4cb
+      uses: codacy/git-version@2.4.0
+      with:
+          # The name of the release branch
+          release-branch: master
+          # The name of the dev branch
+          dev-branch: dev
+                  
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Build & push Docker image
       with:
