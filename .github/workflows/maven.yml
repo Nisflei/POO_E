@@ -36,24 +36,25 @@ jobs:
     - name: Executando o projeto
       run: java -cp target/classes org.example.Main
       
-    - name: Create Tag
-      id: create_tag
-      run: |
-          git tag v1.0.0
-          git push origin v1.0.0
-      env:
-          TAG_NAME: v1.0.0
+ #   - name: Create Tag
+ #     id: create_tag
+ #     run: |
+ #         git tag v1.0.0
+ #         git push origin v1.0.0
+ #     env:
+ #         TAG_NAME: v1.0.0
+
 
     - name: Get Version
       run: |
-        version=$TAG_NAME
-        echo "Version: $version"
+          version=$(git describe --tags --abbrev=0)
+          echo "Version: $version"
      
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Build & push Docker image
       with:
           image: nisflei/aula_maven_e
-          tags: 1.0, 1.1, $TAG_NAME
+          tags: 1.0, 1.1, $version
           registry: docker.io
           dockerfile: dockerfile
           username: ${{ secrets.DOCKER_USUARIO }}
