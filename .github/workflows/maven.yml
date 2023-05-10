@@ -71,7 +71,7 @@ jobs:
       name: Build & push Docker image
       with:
           image: nisflei/aula_maven_e
-          tags: 1.0, ${{ github.run_number }}, ${{ github.VERSION }}
+          tags: 1.0, ${{ github.run_number }}, ${{ VERSION }}
           registry: docker.io
           dockerfile: dockerfile
           username: ${{ secrets.DOCKER_USUARIO }}
