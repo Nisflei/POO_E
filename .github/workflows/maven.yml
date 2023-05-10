@@ -49,7 +49,7 @@ jobs:
     #  run: |
     #    echo ${{ steps.get_next_version.outputs.version }}
     #    echo ${{ steps.get_next_version.outputs.hasNextVersion }}
-     
+      
     - name: Version
       id: bump
       uses: zwaldowski/match-label-action@v4
