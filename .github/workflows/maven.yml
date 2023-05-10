@@ -36,6 +36,11 @@ jobs:
     - name: Executando o projeto
       run: java -cp target/classes org.example.Main
     
+    - name: Version me!
+  # You may pin to the exact commit or the version.
+  # uses: gevorg-martir/version-me@722e3f0b97105e9e361b2ea2a565e5f756f6798e
+      uses: gevorg-martir/version-me@v2.0.0
+  
     #- name: Git Version
     #  uses: codacy/git-version@2.4.0
     #  with:
@@ -50,14 +55,6 @@ jobs:
     #    echo ${{ steps.get_next_version.outputs.version }}
     #    echo ${{ steps.get_next_version.outputs.hasNextVersion }}
       
-    - id: bump
-      uses: zwaldowski/match-label-action@v4
-      with:
-        allowed: major,minor,patch
-    - uses: zwaldowski/semver-release-action@v3
-      with:
-        bump: ${{ steps.bump.outputs.match }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
    
     #- uses: actions/checkout@v2
     #- id: version
