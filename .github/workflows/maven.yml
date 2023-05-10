@@ -36,18 +36,25 @@ jobs:
     - name: Executando o projeto
       run: java -cp target/classes org.example.Main
     
-    - name: Git Version
-      uses: codacy/git-version@2.4.0
-      with:
-          # The name of the release branch
-          release-branch: master
-
+    #- name: Git Version
+    #  uses: codacy/git-version@2.4.0
+    #  with:
+    #      # The name of the release branch
+    #      release-branch: master
+    
+    - name: Get next version
+      id: get_next_version
+      uses: thenativeweb/get-next-version@main
+    - name: Show the next version
+      run: |
+        echo ${{ steps.get_next_version.outputs.version }}
+        echo ${{ steps.get_next_version.outputs.hasNextVersion }}
                   
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Build & push Docker image
       with:
           image: nisflei/aula_maven_e
-          tags: 1.0, 1.1, ${{ steps.version.outputs.previous-version }}
+          tags: 1.0, 1.1, ${{ steps.get_next_version.outputs.hasNextVersion }}
           registry: docker.io
           dockerfile: dockerfile
           username: ${{ secrets.DOCKER_USUARIO }}
