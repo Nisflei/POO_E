@@ -45,7 +45,7 @@ jobs:
         # The name of the release branch
         release-branch: master
         # The prefix to use in the version
-        prefix: 2
+        #prefix: 2
     
     #- name: Get next version
     #  id: get_next_version
