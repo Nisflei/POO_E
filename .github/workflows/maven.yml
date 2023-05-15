@@ -47,10 +47,10 @@ jobs:
     
     - name: Use the version
       run: |
-          echo ${{ steps.version.outputs.version }}
+          echo ${{ steps.generate_number.outputs.version }}
     - name: Use the previous version
       run: |
-          echo ${{ steps.version.outputs.previous-version }}
+          echo ${{ steps.generate_number.outputs.previous-version }}
     
     #- name: Get next version
     #  id: get_next_version
