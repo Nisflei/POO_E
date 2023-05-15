@@ -43,7 +43,7 @@ jobs:
         # The name of the release branch
         release-branch: master
         # The prefix to use in the version
-        prefix: 3.
+        prefix: PROD-
     
     #- name: Get next version
     #  id: get_next_version
