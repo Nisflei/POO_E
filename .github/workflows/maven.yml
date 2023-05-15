@@ -44,7 +44,6 @@ jobs:
         release-branch: master
         # The prefix to use in the version
         prefix: PROD-
-        log-path: .
     
     #- name: Get next version
     #  id: get_next_version
