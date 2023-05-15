@@ -1,4 +1,4 @@
-name: DEV - Java CI with Maven
+name: DEV DEV - Java CI with Maven
 
 on:
   push:
