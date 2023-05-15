@@ -77,7 +77,7 @@ jobs:
       with:
           image: nisflei/aula_maven_e
           #steps.generate_number.outputs.VERSION
-          tags: 1.0, ${{ github.run_number }}, ${{ steps.get_next_version.outputs.hasNextVersion }}
+          tags: 1.0, ${{ github.run_number }}, ${{ steps.version.outputs.next }}
           registry: docker.io
           dockerfile: dockerfile
           username: ${{ secrets.DOCKER_USUARIO }}
